@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" method="IE Edge">
+    <meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
+    <title>Chat com</title>
+  </head>
+  <body>
+    <div class="top">
+      <h1 id="user"></h1>
+    </div>
+  </body>
+  <style>
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var user = document.getElementById('user');
+        
+        if (localStorage.getItem('userChat') != null) {
+            document.title = "Chat com" + localStorage.getItem('userChat');
+            user.innerHTML = localStorage.getItem('userChat');
+        }
+    });
+  </script>
+</html>
