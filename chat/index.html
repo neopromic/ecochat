@@ -44,7 +44,7 @@
         var user = document.getElementById('user');
         
         if (localStorage.getItem('userClick') != null) {
-            document.title = "Chat com" + localStorage.getItem('userClick');
+            document.title = "Chat com '" + localStorage.getItem('userClick') + "'";
             user.innerHTML = localStorage.getItem('userClick');
         }
     });
