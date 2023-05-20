@@ -10,6 +10,20 @@
     <div class="top">
       <h1 id="user"></h1>
     </div>
+    <ol id="chat">
+      <li class="me">
+        <div>
+          <h6 id="m">Você</h6>
+          <h5 id="m_msg">opa, cara</h5>
+        </div>
+      </li>
+      <li class="you">
+        <div>
+          <h6 id="y"></h6>
+          <h5 id="y_msg">opa, cara</h5>
+        </div>
+      </li>
+    </ol>
   </body>
   <style>
     @font-face {
@@ -37,6 +51,27 @@
         font-size: 4vh;
         font-family: archivo, Verdana;
         color: white;
+        transform: translateY(2vh);
+    }
+    
+    #list {
+        list-style-type: none;
+        margin: 0;
+    }
+      
+    #list li {
+        margin-bottom: 1vh;
+    }
+      
+    #list .me {
+        align-items: right;
+    }
+      
+    #list .me div {
+        background-color: #30b936;
+        min-width: 10vh;
+        min-height: 5vh;
+        max-width: 30vh;
     }
   </style>
   <script>
