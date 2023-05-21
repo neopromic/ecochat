@@ -7,9 +7,9 @@
     <title>Início • EcoChat</title>
   </head>
   <body>
-    <div class="top">
-      <h1 id="header">Conversas</h1>
-    </div>
+    
+    <h1 id="header">Mensagens</h1>
+    
     <ol id="list">
       <li>
         <div>
@@ -30,9 +30,12 @@
         </div>
       </li>
       <li>
-        <div>
-          <img id="ic" src="ic4.jpg">
-          <h3 id="user">Márcia</h3>
+        <div class="layout">
+          <div>
+            <img id="ic" src="ic4.jpg">
+            <h3 id="user">Márcia</h3>
+          </div>
+          <h4 id="last">Que bom que estás bem</h4>
         </div>
       </li>
     </ol>
@@ -48,18 +51,10 @@
         src: url('Archivo-Light.ttf');
     }
     
-    .top {
-        background-color: #30B936;
-        width: 100%;
-        height: 15vh;
-        border-radius: 2vh;
-        transform: translate(1vh, -6vh);
-    }
-    
-    .top #header {
-        color: white;
-        transform: translate(2vh, 6.5vh);
-        font-size: 4vh;
+    #header {
+        color: #109916;
+        font-size: 2vh;
+        
         font-family: archivo_bold, Verdana;
     }
     
