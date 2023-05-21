@@ -67,7 +67,7 @@
     #header {
         color: #109916;
         font-size: 2vh;
-        
+        transform: translateX(2vh);
         font-family: archivo_bold, Verdana;
     }
     
@@ -75,7 +75,7 @@
         list-style-type: none;
         margin: 0;
         width: 100%;
-        transform: translateY(-1vh);
+        transform: translateX(-1vh);
     }
     
     #list li {
@@ -88,14 +88,14 @@
         width: 100%;
     }
     
-    #list li .layout #ic {
+    #list li .layout div #ic {
         border-radius: 50%;
         width: 6vh;
         height: 6vh;
-        margin-right: 20vh;
+        transform: translateX(-20vh);
     }
     
-    #list li .layout #user {
+    #list li .layout div #user {
         transform: translateX(-17vh);
         font-family: archivo, Verdana;
         color: #70c966;
@@ -106,12 +106,12 @@
         transform: translateX(-17vh);
         font-family: archivo, Verdana;
         color: #70c966;
-        opacity: 0.5;
+        opacity: 0.9;
         font-size: 2.5vh;
     }
     
     #list li .divider {
-        height: 1.2vh;
+        height: 0.5vh;
         background-color: #109916;
         width: 100%;
     }
