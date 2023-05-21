@@ -19,6 +19,7 @@
           </div>
           <h4 id="last">às 22:00 nós vamos</h4>
         </div>
+        <div class="divider"></div>
       </li>
       <li>
         <div class="layout">
@@ -28,6 +29,7 @@
           </div>
           <h4 id="last">só vou mais tarde</h4>
         </div>
+        <div class="divider"></div>
       </li>
       <li>
         <div class="layout">
@@ -37,6 +39,7 @@
           </div>
           <h4 id="last">Blz</h4>
         </div>
+        <div class="divider"></div>
       </li>
       <li>
         <div class="layout">
@@ -46,6 +49,7 @@
           </div>
           <h4 id="last">Que bom que estás bem</h4>
         </div>
+        <div class="divider"></div>
       </li>
     </ol>
   </body>
@@ -79,23 +83,37 @@
         margin-bottom: 5vh;
     }
     
-    #list li div {
+    #list li .layout {
         display: flex;
         width: 100%;
     }
     
-    #list li #ic {
-        border-radius: 2vh;
-        width: 8vh;
-        height: 8vh;
+    #list li .layout #ic {
+        border-radius: 50%;
+        width: 6vh;
+        height: 6vh;
         margin-right: 20vh;
     }
     
-    #list li #user {
+    #list li .layout #user {
         transform: translateX(-17vh);
         font-family: archivo, Verdana;
         color: #70c966;
         font-size: 3vh;
+    }
+    
+    #list li .layout #last {
+        transform: translateX(-17vh);
+        font-family: archivo, Verdana;
+        color: #70c966;
+        opacity: 0.5;
+        font-size: 2.5vh;
+    }
+    
+    #list li .divider {
+        height: 1.2vh;
+        background-color: #109916;
+        width: 100%;
     }
   </style>
   <script>
