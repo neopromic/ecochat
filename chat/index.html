@@ -48,40 +48,259 @@
     }
     
     .top #user {
-        font-size: 4vh;
-        font-family: archivo, Verdana;
-        color: white;
-        transform: translateY(2vh);
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" method="IE Edge">
+    <meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
+    <title>Chat com</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200">
+  </head>
+  <body>
+    <div class="top">
+      <span id="back" class="material-symbols-rounded">arrow_back</span>
+      <img id="user_photo">
+      <h1 id="user"></h1>
+    </div>
+    <div class="container">
+      <ol id="chat">
+        <li class="me">
+          <div class="layout">
+            <div>
+              <h5 id="m_msg">opa, cara</h5>
+            </div>
+          </div>
+        </li>
+        <li class="you">
+          <div class="layout">
+            <div>
+              <h5 id="y_msg">opa, cara</h5>
+            </div>
+          </div>
+        </li>
+        <li class="me">
+          <div class="layout">
+            <div>
+              <h5 id="m_msg">opa, cara</h5>
+            </div>
+          </div>
+        </li>
+      </ol>
+      <div class="search">
+        <span id="search" class="material-symbols-rounded">send</span>
+        <input id="search_text" placeholder="Digite algo...">
+      </div>
+    </div>
+  </body>
+  <style>
+    @font-face {
+        font-family: archivo;
+        src: url('Archivo-Light.ttf');
     }
     
-    #list {
-        list-style-type: none;
+    @font-face {
+        font-family: archivo2;
+        src: url('Archivo-Bold.ttf');
+    }
+    
+    .container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+    
+    .search {
+        background-color: #555555;
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        bottom: 0;
+        left: 0;
+        padding: 1vh;
+        transform: translateY(95vh);
+        border-radius: 2vh;
+        position: absolute;
+        align-items: center;
+    }
+    
+    .search #search_text {
+        width: 100%;
+        height: 100%;
+        font-family: archivo, Verdana;
+        border-color: #555555;
+        background: transparent;
+        position: relative;
+        font-size: 2vh;
+        margin: 0;
+        color: white;
+    }
+    
+    .search #search_text:placeholder {
+        color: white;
+        opacity: 0.5;
+    }
+    
+    .search #search {
+        position: relative;
+        transform: translateX(45vh);
+        font-size: 3vh;
+    }
+    
+    .top {
+        background-color: #30b936;
+        align-items: center;
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding-bottom: 1vh;
+        padding-top: 1vh;
+        border-radius: 2vh;
         margin: 0;
     }
-      
-    #list li {
-        margin-bottom: 1vh;
+    
+    .top #user {
+        font-size: 2.5vh;
+        font-family: archivo, Verdana;
+        color: white;
+        transform: translateX(4vh);
     }
-      
-    #list .me {
-        align-items: right;
+    
+    .top #user_photo {
+        width: 5vh;
+        height: 5vh;
+        border-radius: 50%;
+        transform: translateX(3vh);
     }
-      
-    #list .me div {
+    
+    .top .material-symbols-rounded {
+        font-size: 3vh;
+        transform: translateX(2vh);
+        color: white;
+    }
+    
+    #chat {
+        list-style-type: none;
+        margin: 0;
+        margin-top: 1vh;
+        display: block;
+    }
+    
+    #chat li {
+        width: 100%;
+    }
+    
+    #chat .me .layout div {
         background-color: #30b936;
-        min-width: 10vh;
-        min-height: 5vh;
         max-width: 30vh;
+        height: auto;
+        width: auto;
+        float: right;
+        text-align: right;
+        border-radius: 2vh;
+        padding-bottom: 1vh;
+        padding-top: 1vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        margin-right: 1vh;
+    }
+    
+    #chat .me #m_msg {
+        transform: translateX(-1.5vh);
+        height: 3vh;
+        width: 100%;
+        font-size: 2vh;
+        color: white;
+        margin: 0;
+        text-align: right;
+        font-family: archivo, Verdana;
+    }
+    
+    #chat .you .layout div {
+        background-color: #555555;
+        height: auto;
+        width: auto;
+        max-width: 30vh;
+        float: left;
+        text-align: left;
+        border-radius: 2vh;
+        padding-bottom: 1vh;
+        padding-top: 1vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        margin-right: 1vh;
+    }
+    
+    #chat .you .layout #y_msg {
+        transform: translateX(1.5vh);
+        height: 3vh;
+        width: 100%;
+        font-size: 2vh;
+        color: white;
+        margin: 0;
+        font-family: archivo, Verdana;
     }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
         var user = document.getElementById('user');
+        var photo = document.getElementById('user_photo');
         
         if (localStorage.getItem('userClick') != null) {
             document.title = "Chat com '" + localStorage.getItem('userClick') + "'";
             user.innerHTML = localStorage.getItem('userClick');
+            var name = localStorage.getItem('userClick');
+            if (name === 'João Luiz') {
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic1.jpg');
+            } else if (name === 'Sabrina') {
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic3.jpg');
+            } else if (name === 'Daniel') {
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic2.jpg');
+            } else if (name === 'Márcia') {
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic4.jpg');
+            }
         }
+        
+        var joao = [
+            {
+                "ps":"tu",
+                "msg":"Opa"
+            },
+            {
+                "ps":"el",
+                "msg":"Oii, bom dia"
+            },
+            {
+                "ps":"el",
+                "msg":"Como vai?"
+            },
+            {
+                "ps":"tu",
+                "msg":"Estou bem, obrigado"
+            }
+        ];
+        
+        var list = document.getElementById("chat");
+        
+        /*for (var i = 0; i < joao.length; i++) {
+            var item = document.createElement("li");
+            var div = document.createElement("div");
+            var h5 = document.createElement("h5");
+            
+            if (joao[i].ps === "tu") {
+                item.setAttribute("class", "me");
+                h5.setAttribute("id", "m_msg")
+                h5.innerHTML = joao[i].msg;
+            } else if (joao[i].ps === "el") {
+                item.setAttribute("class", "you");
+                h5.setAttribute("id", "y_msg")
+                h5.innerHTML = joao[i].msg;
+            }
+            
+            div.appendChild(h5);
+            item.appendChild(div);
+            list.appendChild(item);
+        }*/
     });
   </script>
 </html>
