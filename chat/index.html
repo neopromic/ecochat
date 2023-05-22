@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" method="IE Edge">
+    <meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
+    <title>Chat com</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200">
+  </head>
+  <body>
+    <div class="top">
+      <span id="back" class="material-symbols-rounded">arrow_back</span>
+      <img id="user_photo">
+      <h1 id="user"></h1>
+    </div>
+    <div class="container">
+      <ol id="chat"></ol>
+      <div class="search">
+        <span id="search" class="material-symbols-rounded">send</span>
+        <input id="search_text" placeholder="Digite algo...">
+      </div>
+    </div>
+  </body>
+  <style>
+    @font-face {
+        font-family: archivo;
+        src: url('Archivo-Light.ttf');
+    }
+    
+    @font-face {
+        font-family: archivo2;
+        src: url('Archivo-Bold.ttf');
+    }
+    
+    .container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+    
+    .search {
+        background-color: #555555;
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        bottom: 0;
+        left: 0;
+        padding: 1vh;
+        transform: translateY(95vh);
+        border-radius: 2vh;
+        position: absolute;
+        align-items: center;
+    }
+    
+    .search #search_text {
+        width: 100%;
+        height: 100%;
+        font-family: archivo, Verdana;
+        border-color: #555555;
+        background: transparent;
+        position: relative;
+        font-size: 2vh;
+        margin: 0;
+        color: white;
+    }
+    
+    .search #search_text:placeholder {
+        color: white;
+        opacity: 0.5;
+    }
+    
+    .search #search {
+        position: relative;
+        transform: translateX(45vh);
+        font-size: 3vh;
+    }
+    
+    .top {
+        background-color: #30b936;
+        align-items: center;
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding-bottom: 1vh;
+        padding-top: 1vh;
+        border-radius: 2vh;
+        margin: 0;
+    }
+    
+    .top #user {
+        font-size: 2.5vh;
+        font-family: archivo, Verdana;
+        color: white;
+        transform: translateX(4vh);
+    }
+    
+    .top #user_photo {
+        width: 5vh;
+        height: 5vh;
+        border-radius: 50%;
+        transform: translateX(3vh);
+    }
+    
+    .top .material-symbols-rounded {
+        font-size: 3vh;
+        transform: translateX(2vh);
+        color: white;
+    }
+    
+    #chat {
+        list-style-type: none;
+        margin: 0;
+        margin-top: 1vh;
+        display: block;
+        padding-bottom: 2vh;
+    }
+    
+    #chat li {
+        width: 100%;
+        margin-bottom: 1vh;
+    }
+    
+    #chat .me div {
+        float: right;
+        background-color: #30b936;
+        height: auto;
+        width: auto;
+        max-width: 70%;
+        border-radius: 2vh;
+        margin: 0;
+        padding: 1vh;
+    }
+    
+    #chat .me #m_msg {
+        /*transform: translateX(1.5vh);*/
+        height: 3vh;
+        width: auto;
+        font-size: 2vh;
+        color: white;
+        margin: 0;
+        margin-left: 1vh;
+        margin-right 1vh;
+        text-align: right;
+        font-family: archivo, Verdana;
+    }
+    
+    #chat .you div {
+        background-color: #555555;
+        height: auto;
+        min-width: 10vh;
+        text-align: left;
+        max-width: 70%;
+        border-radius: 2vh;
+        margin: 0;
+        padding: 1vh;
+    }
+    
+    #chat .you #y_msg {
+        transform: translateX(1.5vh);
+        min-height: 3vh;
+        width: auto;
+        font-size: 2vh;
+        color: white;
+        margin: 0;
+        margin-right: 1vh;
+        padding: 0;
+        font-family: archivo, Verdana;
+    }
+    
+    #chat .you, #chat .me {
+        overflow: auto;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var user = document.getElementById('user');
+        var photo = document.getElementById('user_photo');
+        var usu = "";
+        
+        if (localStorage.getItem('userClick') != null) {
+            document.title = "Chat com '" + localStorage.getItem('userClick') + "'";
+            user.innerHTML = localStorage.getItem('userClick');
+            var name = localStorage.getItem('userClick');
+            if (name === 'João') {
+                usu = "João";
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic1.jpg');
+            } else if (name === 'Sabrina') {
+                usu = "Sabrina";
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic3.jpg');
+            } else if (name === 'Daniel') {
+                usu = "Daniel";
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic2.jpg');
+            } else if (name === 'Márcia') {
+                usu = "Márcia";
+                photo.setAttribute('src','https://neopromic.github.io/ecochat/ic4.jpg');
+            }
+        }
+        
+        console.log(usu);
+        
+        var joao = [
+            {
+                "ps":"tu",
+                "msg":"Oieeeee"
+            },
+            {
+                "ps":"el",
+                "msg":"Oii, bom dia"
+            },
+            {
+                "ps":"el",
+                "msg":"Como vai?"
+            },
+            {
+                "ps":"tu",
+                "msg":"Estou bem, obrigado"
+            }
+        ];
+        
+        var marcia = [
+            {
+                "ps":"el",
+                "msg":"Bom dia, cara"
+            },
+            {
+                "ps":"el",
+                "msg":"eu estou procurando alguém para fazer um app, te interessa?"
+            },
+            {
+                "ps":"tu",
+                "msg":"Bom diaaa"
+            },
+            {
+                "ps":"tu",
+                "msg":"Nossa, me interesso sim! Diga-me mais."
+            }
+        ];
+        
+        var sabrina = [
+            {
+                "ps":"tu",
+                "msg":"Opa, sabrina"
+            },
+            {
+                "ps":"tu",
+                "msg":"Você foi para a escola hoje??"
+            },
+            {
+                "ps":"el",
+                "msg":"Oiii"
+            },
+            {
+                "ps":"el",
+                "msg":"Simmm"
+            },
+            {
+                "ps":"el",
+                "msg":"Mas não teve aula porque tá em greve"
+            }
+        ];
+        
+        var daniel = [
+            {
+                "ps":"el",
+                "msg":"Eiiii"
+            },
+            {
+                "ps":"el",
+                "msg":"Vamos no parque hoje???"
+            },
+            {
+                "ps":"tu",
+                "msg":"Vamoooos, eu comprei ingressos antecipado"
+            },
+            {
+                "ps":"el",
+                "msg":"Ótimo!!! Às 20:00 passo aí!"
+            },
+            {
+                "ps":"tu",
+                "msg":"Ok!!!"
+            }
+        ];
+        
+        var list = document.getElementById("chat");
+        
+        if (usu === "João") {
+            for (var i = 0; i < joao.length; i++) {
+                var item = document.createElement("li");
+                var div = document.createElement("div");
+                var h5 = document.createElement("h5");
+                var layout = document.createElement("div");
+              
+                if (joao[i].ps === "tu") {
+                    item.setAttribute("class", "me");
+                    h5.setAttribute("id", "m_msg")
+                    h5.innerHTML = joao[i].msg;
+                } else if (joao[i].ps === "el") {
+                    item.setAttribute("class", "you");
+                    h5.setAttribute("id", "y_msg")
+                    h5.innerHTML = joao[i].msg;
+                }
+                
+               // layout.setAttribute("class", "layout");
+                div.appendChild(h5);
+                layout.appendChild(div);
+                item.appendChild(div);
+                list.appendChild(item);
+            }
+        } else if (usu === "Márcia") {
+            for (var i = 0; i < marcia.length; i++) {
+                var item = document.createElement("li");
+                var div = document.createElement("div");
+                var h5 = document.createElement("h5");
+                var layout = document.createElement("div");
+              
+                if (marcia[i].ps === "tu") {
+                    item.setAttribute("class", "me");
+                    h5.setAttribute("id", "m_msg")
+                    h5.innerHTML = marcia[i].msg;
+                } else if (marcia[i].ps === "el") {
+                    item.setAttribute("class", "you");
+                    h5.setAttribute("id", "y_msg")
+                    h5.innerHTML = marcia[i].msg;
+                }
+                
+               // layout.setAttribute("class", "layout");
+                div.appendChild(h5);
+                layout.appendChild(div);
+                item.appendChild(div);
+                list.appendChild(item);
+            }
+        } else if (usu === "Sabrina") {
+            for (var i = 0; i < sabrina.length; i++) {
+                var item = document.createElement("li");
+                var div = document.createElement("div");
+                var h5 = document.createElement("h5");
+                var layout = document.createElement("div");
+              
+                if (sabrina[i].ps === "tu") {
+                    item.setAttribute("class", "me");
+                    h5.setAttribute("id", "m_msg")
+                    h5.innerHTML = sabrina[i].msg;
+                } else if (sabrina[i].ps === "el") {
+                    item.setAttribute("class", "you");
+                    h5.setAttribute("id", "y_msg")
+                    h5.innerHTML = sabrina[i].msg;
+                }
+                
+               // layout.setAttribute("class", "layout");
+                div.appendChild(h5);
+                layout.appendChild(div);
+                item.appendChild(div);
+                list.appendChild(item);
+            }
+        } else if (usu === "Daniel") {
+            for (var i = 0; i < daniel.length; i++) {
+                var item = document.createElement("li");
+                var div = document.createElement("div");
+                var h5 = document.createElement("h5");
+                var layout = document.createElement("div");
+              
+                if (daniel[i].ps === "tu") {
+                    item.setAttribute("class", "me");
+                    h5.setAttribute("id", "m_msg")
+                    h5.innerHTML = daniel[i].msg;
+                } else if (daniel[i].ps === "el") {
+                    item.setAttribute("class", "you");
+                    h5.setAttribute("id", "y_msg")
+                    h5.innerHTML = daniel[i].msg;
+                }
+                
+               // layout.setAttribute("class", "layout");
+                div.appendChild(h5);
+                layout.appendChild(div);
+                item.appendChild(div);
+                list.appendChild(item);
+            }
+        }
+        
+        var itens = list.getElementsByClassName('you');
+        for (var i = 0; i < itens.length; i++) {
+            var it = itens[i].querySelector('#y_msg');
+            itens[i].style.width = String(it.innerText.length + 9) + "vh";
+        }
+        
+    });
+  </script>
+</html>
