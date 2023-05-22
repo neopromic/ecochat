@@ -137,7 +137,7 @@
         
         for (var i = 0; i < itens.length; i++) {
             itens[i].addEventListener('click', function() {
-                var user = this.querySelector('#user');
+                var user = this.querySelector('#last');
                 localStorage.setItem('userClick', user.innerText);
                 window.location.assign('https://neopromic.github.io/ecochat/chat');
             });
