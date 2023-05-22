@@ -14,29 +14,7 @@
       <h1 id="user"></h1>
     </div>
     <div class="container">
-      <ol id="chat">
-        <li class="me">
-          <div class="layout">
-            <div>
-              <h5 id="m_msg">opa, cara</h5>
-            </div>
-          </div>
-        </li>
-        <li class="you">
-          <div class="layout">
-            <div>
-              <h5 id="y_msg">opa, cara</h5>
-            </div>
-          </div>
-        </li>
-        <li class="me">
-          <div class="layout">
-            <div>
-              <h5 id="m_msg">opa, cara</h5>
-            </div>
-          </div>
-        </li>
-      </ol>
+      <ol id="chat"></ol>
       <div class="search">
         <span id="search" class="material-symbols-rounded">send</span>
         <input id="search_text" placeholder="Digite algo...">
@@ -214,7 +192,7 @@
         var joao = [
             {
                 "ps":"tu",
-                "msg":"Opa"
+                "msg":"Oieeeee"
             },
             {
                 "ps":"el",
@@ -232,11 +210,12 @@
         
         var list = document.getElementById("chat");
         
-        /*for (var i = 0; i < joao.length; i++) {
+        for (var i = 0; i < joao.length; i++) {
             var item = document.createElement("li");
             var div = document.createElement("div");
             var h5 = document.createElement("h5");
-            
+            var layout = document.createElement("div");
+          
             if (joao[i].ps === "tu") {
                 item.setAttribute("class", "me");
                 h5.setAttribute("id", "m_msg")
@@ -247,10 +226,12 @@
                 h5.innerHTML = joao[i].msg;
             }
             
+            layout.setAttribute("class", "layout");
             div.appendChild(h5);
+            layout.appendChild(div);
             item.appendChild(div);
             list.appendChild(item);
-        }*/
+        }
     });
   </script>
 </html>
