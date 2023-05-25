@@ -176,6 +176,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         var user = document.getElementById('user');
         var photo = document.getElementById('user_photo');
+        var back = document.getElementById('back');
         var usu = "";
         
         if (localStorage.getItem('userClick') != null) {
@@ -196,6 +197,10 @@
                 photo.setAttribute('src','https://neopromic.github.io/ecochat/ic4.jpg');
             }
         }
+        
+        back.addEventListener('click', function() {
+            window.location.replace('https://neopromic.github.io/ecochat/');
+        });
         
         console.log(usu);
         
