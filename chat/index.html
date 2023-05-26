@@ -425,6 +425,13 @@
             }
             
         }
+      
+        var itens = list.getElementsByTagName('li');
+        for (var i = 0; i < itens.length; i++) {
+            var search = document.querySelector('.search');
+            var a = i * 10;
+            search.style.transform = "translateY(" + String(a) + "vh)";
+        }
         
         /*for (var i = 0; i < itens2.length; i++) {
             var it = itens2[i].querySelector('#m_msg');
