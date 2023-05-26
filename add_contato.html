@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" method="IE Edge">
+    <meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
+    <title>Adicionando um novo contato...</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200">
+  </head>
+  <body>
+    <div class="head">
+      <span class="material-symbols-rounded">arrow_back</span>
+      <h1 class="eco">Novo contato</h1>
+    </div>
+    <h3 class="nome">Nome</h3>
+    <div class="nome">
+      <input id="nome" type="name" placeholder="Digite aqui">
+    </div>
+    <h3 class="cell">Celular</h3>
+    <div class="cell">
+      <input id="cell" type="number" placeholder="(00) 0000-0000">
+    </div>
+    <div class="fab">
+      <h3>Criar</h3>
+      <span id="fab" class="material-symbols-rounded">create</span>
+    </div>
+  </body>
+  <style>
+    .head {
+        display: flex;
+        height: 5vh;
+        margin: 0;
+        transform: translateY(-2vh);
+        margin-left: 2vh;
+    }
+    
+    .head .eco {
+        font-size: 4vh;
+        transform: translateX(2vh);
+        font-family: Sans-Serif;
+    }
+   
+    .head span {
+        font-size: 4vh;
+        margin: 0;
+        line-height: 3vh;
+        width: 4vh;
+        height: 4vh;
+        transform: translateY(3.3vh);
+    }
+    
+    .fab {
+        position: fixed;
+        bottom: 2vh;
+        right: 2vh;
+        display: flex;
+        width: 15vh;
+        height: 7vh;
+        background-color: #30b936;
+        border-radius: 2vh;
+        text-align: right;
+        box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.1);
+    }
+    
+    .fab h3 {
+        font-size: 2.5vh;
+        transform: translate(3vh, -0.5vh);
+        text-align: center;
+    }
+    
+    #fab {
+        color: #fff;
+        font-size: 3.5vh;
+        text-align: center;
+        line-height: 7vh;
+        width: 7vh;
+        height: 7vh;
+        margin-left: 2vh;
+        float: right;
+        text-decoration: none;
+    }
+    
+    .add {
+        height: 70vh;
+        width: 100%;
+        background-color: #30b936;
+        margin: 0;
+    }
+    
+    h3.nome {
+        font-family: Sans-Serif;
+        font-size: 2.5vh;
+        margin: 0;
+        color: #30b936;
+        transform: translate(3vh, 4vh);
+    }
+    
+    div.nome {
+        width: 40vh;
+        height: 7vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #30b936;
+        border-radius: 2vh;
+        transform: translate(3vh, 5vh);
+    }
+    
+    div.nome #nome {
+        width: 100%;
+        height: 100%;
+        background-color: #30b936;
+        font-family: Sans-Serif;
+        color: #fff;
+        border-radius: 2vh;
+        font-size: 2vh;
+        padding-left: 2vh;
+    }
+    
+    div.nome #nome:placeholder {
+        font-family: Sans-Serif;
+        color: #999999;
+    }
+    
+    h3.cell {
+        font-family: Sans-Serif;
+        font-size: 2.5vh;
+        margin: 0;
+        color: #30b936;
+        transform: translate(3vh, 9vh);
+    }
+    
+    div.cell {
+        width: 40vh;
+        height: 7vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #30b936;
+        border-radius: 2vh;
+        transform: translate(3vh, 10vh);
+    }
+    
+    div.cell #cell {
+        width: 100%;
+        height: 100%;
+        background-color: #30b936;
+        font-family: Sans-Serif;
+        color: #fff;
+        border-radius: 2vh;
+        font-size: 2vh;
+        padding-left: 2vh;
+    }
+    
+    div.cell #cell:placeholder {
+        font-family: Sans-Serif;
+        color: #999999;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var phone = this.getElementById('cell');
+        var name = this.getElementById('nome');
+        var create = this.querySelector('.fab');
+        
+        create.addEventListener('click', function() {
+            if (phone.value === "" || name.value === "") {
+                alert("Preencha todos os campos.");
+            } else {
+                window.location.replace('https://neopromic.github.io/ecochat');
+            }
+        });
+    });
+  </script>
+</html>
